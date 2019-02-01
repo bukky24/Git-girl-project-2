@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[15]:
+# In[3]:
 
 
 #Pandas program to get the details of the movie with title 'Grumpier Old Men'
@@ -12,18 +12,19 @@ Grumpier_Old_Men = m[ m['title'] ==  'Grumpier Old Men']
 Grumpier_Old_Men.head()
 
 
-# In[18]:
+# In[4]:
 
 
 # Pandas program to sort the DataFrame based on release_date
 # The Framework only display the following columns: 'title', 'release_date', 'budget', 'revenue', 'runtime'
-movies_metadata = pd.read_csv('movies_metadata.csv', usecols=['title', 'release_date', 'budget', 'revenue', 'runtime'])
+cols_to_use = ['title', 'release_date', 'budget', 'revenue', 'runtime']
+movies_metadata = pd.read_csv('movies_metadata.csv', usecols= cols_to_use)[cols_to_use]
 m = movies_metadata
 pm = m.sort_values(by='release_date')
 pm.head(8)
 
 
-# In[19]:
+# In[5]:
 
 
 # This program get those movies whose revenue is more than 2 million and spent less than 1 million
